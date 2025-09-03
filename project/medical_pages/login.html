@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup Page</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Center the container */
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .form-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .toggle-form {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .toggle-form a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .toggle-form a:hover {
+            text-decoration: underline;
+        }
+
+        /* Slide effect */
+        .form-container.login-active {
+            transform: translateX(0);
+        }
+
+        .form-container.signup-active {
+            transform: translateX(-100%);
+        }
+
+        /* Success and error message styling */
+        .message {
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .success-message {
+            color: green;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container login-active">
+            <!-- Login Form -->
+            <div class="form login-form">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                    <p class="toggle-form">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+                    <p class="message" id="loginMessage"></p>
+                </form>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="form signup-form">
+                <h2>Sign Up</h2>
+                <form id="signupForm">
+                    <div class="input-group">
+                        <label for="signup-username">Username</label>
+                        <input type="text" id="signup-username" name="signup-username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" name="signup-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                    <p class="toggle-form">Already have an account? <a href="#" id="showLogin">Login</a></p>
+                    <p class="message" id="signupMessage"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const formContainer = document.querySelector(".form-container");
+            const showSignup = document.getElementById("showSignup");
+            const showLogin = document.getElementById("showLogin");
+            const loginForm = document.getElementById("loginForm");
+            const signupForm = document.getElementById("signupForm");
+            const loginMessage = document.getElementById("loginMessage");
+            const signupMessage = document.getElementById("signupMessage");
+
+            // Toggle between login and signup forms
+            showSignup.addEventListener("click", function (event) {
+                event.preventDefault();
+                formContainer.classList.add("signup-active");
+                formContainer.classList.remove("login-active");
+            });
+
+            showLogin.addEventListener("click", function (event) {
+                event.preventDefault();
+                formContainer.classList.add("login-active");
+                formContainer.classList.remove("signup-active");
+            });
+
+            // Handle Signup
+            signupForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                const username = document.getElementById("signup-username").value;
+                const password = document.getElementById("signup-password").value;
+
+                // Check if username already exists
+                if (localStorage.getItem(username)) {
+                    signupMessage.textContent = "Username already exists!";
+                    signupMessage.classList.remove("success-message");
+                    signupMessage.classList.add("error-message");
+                } else {
+                    // Save username and password to localStorage
+                    localStorage.setItem(username, password);
+                    signupMessage.textContent = "Sign up successful!";
+                    signupMessage.classList.remove("error-message");
+                    signupMessage.classList.add("success-message");
+
+                    // Clear the form
+                    signupForm.reset();
+
+                    // Automatically switch to the login form after 2 seconds
+                    setTimeout(() => {
+                        formContainer.classList.add("login-active");
+                        formContainer.classList.remove("signup-active");
+                    }, 2000);
+                }
+            });
+
+            // Handle Login
+            loginForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+
+                // Check if username exists and password matches
+                const storedPassword = localStorage.getItem(username);
+                if (storedPassword && storedPassword === password) {
+                    loginMessage.textContent = "Login successful!";
+                    loginMessage.classList.remove("error-message");
+                    loginMessage.classList.add("success-message");
+
+                    // Redirect to another page (e.g., dashboard) after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = "dashboard.html";
+                    }, 2000);
+                } else {
+                    loginMessage.textContent = "Invalid username or password!";
+                    loginMessage.classList.remove("success-message");
+                    loginMessage.classList.add("error-message");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

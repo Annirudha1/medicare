@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+       
+
+        /* Appointment Section */
+        .appointment-page-section {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .appointment-page-section form {
+            text-align: left;
+        }
+
+        .appointment-page-section label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        .appointment-page-section input,
+        .appointment-page-section select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .appointment-page-section input:focus,
+        .appointment-page-section select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .appointment-page-section button {
+            padding: 15px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .appointment-page-section button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .appointment-page-section {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+</style>
+<body>
+    <section id="appointment-page" class="appointment-page-section">
+        <h1>Book Your Appointment</h1>
+        <form action="submit_appointment.php" method="POST">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your full name"> <br>
+    
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email"> <br>
+    
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" name="phone" required placeholder="Enter your phone number"> <br>
+    
+          <label for="date">Appointment Date</label>
+          <input type="date" id="date" name="date" required> <br>
+    
+          <label for="doctor">Preferred Doctor</label>
+          <select id="doctor" name="doctor" required>
+            <option value="Dr. A Sharma">Dr. A. Sharma (Cardiologist)</option>
+            <option value="Dr. B Verma">Dr. B. Verma (Neurologist)</option>
+            <option value="Dr. C Patel">Dr. C. Patel (Orthopedic)</option>
+            <option value="Dr. D Singh">Dr. D. Singh (Dermatologist)</option>
+            <option value="Dr. E Kapoor">Dr. E. Kapoor (Gynecologist)</option>
+            <option value="Dr. F Rao">Dr. F. Rao (Pediatrician)</option>
+          </select> <br>
+    
+          <button type="submit">Book Appointment</button>
+        </form>
+        <p id="successMessage"></p>
+      </section>
+
+      <script>
+        function submitForm() {
+            // Get the form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const doctor = document.getElementById('doctor').value;
+
+            // Validate all fields are filled
+            if (name && email && phone && date && doctor) {
+                // Display success message
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+                successMessage.textContent = `Thank you, ${name}! Your appointment with ${doctor} on ${date} has been successfully booked.`;
+            } else {
+                alert('Please fill in all fields before submitting.');
+            }
+        }
+    </script>
+
+
+</body>
+</html> 

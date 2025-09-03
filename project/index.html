@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanjivani Medicare</title>
+  <link rel="stylesheet" href="medical.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#" class="logo">Sanjivani Medicare</a>
+    <ul>
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="medical_pages/diagnostics.html" class="nav-link">Diagnostics</a></li>
+      <li><a href="#registration" class="nav-link">Registration</a></li>
+      <li><a href="#appointment" class="nav-link">Appointment</a></li>
+      <li><a href="#doctor" class="nav-link">Doctors</a></li>
+      <li><a href="medical_pages/orderMedicine.html" class="nav-link">order🛒</a></li>
+      <li><a href="medical_pages/login.html" class="nav-link">login</a></li>
+      <li>
+        <img src="add_image/default-profile.png" alt="Profile" class="profile-picture" id="profilePicture">
+      </li>
+    </ul>
+  </nav>
+
+   <!-- Profile Page -->
+   <div class="overlay" id="overlay"></div>
+   <div class="profile-page" id="profilePage">
+     <h2>Profile</h2>
+     <img src="add_image/default-profile.png" alt="Profile Picture" id="profileImage">
+     <input type="file" id="uploadImage" accept="image/*">
+     <input type="text" id="profileName" placeholder="Enter your name">
+     <input type="email" id="profileEmail" placeholder="Enter your email">
+     <button onclick="saveProfile()">Save</button>
+     <button onclick="closeProfile()">Close</button>
+   </div>
+
+  <!-- Home Section -->
+  <section id="home" class="home-section">
+    <div class="home-content">
+      <h1>Welcome to <span class="highlight">Sanjivani Medicare</span></h1>
+      <p>Your health, our top priority. We deliver quality healthcare services for you and your family.</p>
+      
+    </div>
+    <div class="home-image">
+      <img src="add_image/hospital_home.jpg" alt="Hospital Image" />
+    </div>
+
+  </section>
+
+  <section>
+      <!-- Body Figures -->
+  <div class="body-figures" style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: wrap; margin-top: 20px;">
+    <!-- Male Body -->
+    <div class="male-figure" style="flex: 1; max-width: 400px; text-align: center;">
+      <img src="add_image/man-structure.png" alt="Male Body Figure" style="width: 100%; max-width: 300px; margin-bottom: 10px;">
+      <h3 style="color: #00796b;">Male Anatomy</h3>
+      <p>Explore health-related details for male body systems.</p>
+    </div>
+
+    <!-- Female Body -->
+    <div class="female-figure" style="flex: 1; max-width: 400px; text-align: center;">
+      <img src="add_image/woman-structure.webp" alt="Female Body Figure" style="width: 100%; max-width: 300px; margin-bottom: 10px;">
+      <h3 style="color: #00796b;">Female Anatomy</h3>
+      <p>Discover healthcare specifics for female body systems.</p>
+    </div>
+  </div>
+  </section>
+    <!--Diagnostics  Section -->
+    
+    
+  
+
+  <!-- Registration Section -->
+  <section id="registration" class="registration-section">
+    <div class="section-content">
+      <h2>Register Yourself</h2>
+      <img src="add_image/hospital_registration.jpg" alt="Registration Image" />
+      <p>Join Sanjivani Medicare today and take the first step towards better healthcare.</p>
+      <a href="medical_pages/registration.html">
+        <button type="button">Register Now</button>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <!-- Appointment Section -->
+  <section id="appointment" class="appointment-section">
+    <div class="section-content">
+      <h2>Book an Appointment</h2>
+      <img src="add_image/hospital_appoinment.jpg" alt="Appointment Image" />
+      <p>Effortlessly schedule your appointment and meet our specialists at your convenience.</p>
+      <a href="medical_pages/appoinment.html">
+        <button type="button">appoinment Now</button>
+      </a>
+    </div>
+</section>
+
+  <!-- Doctor Section -->
+<section id="doctor" class="doctor-section">
+  <h1>Meet Our Doctors</h1>
+  <div class="doctor-container">
+    <!-- Doctor 1 -->
+    <div class="doctor-card">
+      <img src="add_image/avatar-3637425_1920.png" alt="Dr. A Sharma">
+      <h2>Dr. A. Sharma</h2>
+      <p>Cardiologist</p>
+      <p>Contact: 9876543210</p>
+    </div>
+    <!-- Doctor 2 -->
+    <div class="doctor-card">
+      <img src="add_image/avatar-3637425_1920.png" alt="Dr. B Verma">
+      <h2>Dr. B. Verma</h2>
+      <p>Neurologist</p>
+      <p>Contact: 9876543211</p>
+    </div>
+    <!-- Doctor 3 -->
+    <div class="doctor-card">
+      <img src="add_image/avatar-3637425_1920.png" alt="Dr. C Patel">
+      <h2>Dr. C. Patel</h2>
+      <p>Orthopedic</p>
+      <p>Contact: 9876543212</p>
+    </div>
+    <!-- Doctor 4 -->
+    <div class="doctor-card">
+      <img src="add_image/avatar-3637425_1920.png" alt="Dr. D Singh">
+      <h2>Dr. D. Singh</h2>
+      <p>Dermatologist</p>
+      <p>Contact: 9876543213</p>
+    </div>
+    <!-- Doctor 5 -->
+    <div class="doctor-card">
+      <img src="add_image/avatar-3637425_1920.png" alt="Dr. E Kapoor">
+      <h2>Dr. E. Kapoor</h2>
+      <p>Gynecologist</p>
+      <p>Contact: 9876543214</p>
+    </div>
+    <!-- Doctor 6 -->
+    <div class="doctor-card">
+      <img src="add_image/avatar-3637425_1920.png" alt="Dr. F Rao">
+      <h2>Dr. F. Rao</h2>
+      <p>Pediatrician</p>
+      <p>Contact: 9876543215</p>
+    </div>
+  </div>
+  <p>Our team of experienced and compassionate medical professionals is here to serve you.</p>
+</section>
+
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-content">
+      <h2>About Us</h2>
+      <p>
+        Sanjivani Medicare is committed to providing world-class healthcare services to our patients. We focus on modern medical practices, patient care, and an empathetic approach.
+      </p>
+    </div>
+
+     
+    
+      <!-- Google Map -->
+    <div class="map-container" style="margin-top: 20px;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.9342554977193!2d77.4859453820445!3d28.468656486092936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea0bb627ba3f%3A0x98ceba75b8e54979!2sITS%20Engineering%20College!5e0!3m2!1sen!2sin!4v1736402011310!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+  <script>
+     // JavaScript for Profile Picture and Profile Page
+     const profilePicture = document.getElementById("profilePicture");
+    const profilePage = document.getElementById("profilePage");
+    const overlay = document.getElementById("overlay");
+    const uploadImage = document.getElementById("uploadImage");
+    const profileImage = document.getElementById("profileImage");
+    const profileName = document.getElementById("profileName");
+    const profileEmail = document.getElementById("profileEmail");
+
+    // Open Profile Page
+    profilePicture.addEventListener("click", () => {
+      profilePage.style.display = "block";
+      overlay.style.display = "block";
+    });
+
+    // Close Profile Page
+    function closeProfile() {
+      profilePage.style.display = "none";
+      overlay.style.display = "none";
+    }
+
+    // Upload Profile Picture
+    uploadImage.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          profileImage.src = e.target.result;
+          profilePicture.src = e.target.result; // Update profile picture in navbar
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Save Profile Details
+    function saveProfile() {
+      const name = profileName.value;
+      const email = profileEmail.value;
+      alert(`Profile Saved!\nName: ${name}\nEmail: ${email}`);
+      closeProfile();
+    }
+  </script>
+</body>
+</html> 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+</head>
+<style>
+/* registration Page */
+body {
+      font-family: 'Arial', sans-serif;
+      background-color: #eef2f7;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+   
+    /* Form Styles */
+    form {
+      display: inline-block;
+      text-align: left;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    form label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      color: #444;
+    }
+
+    form input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    form input:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    form button {
+      padding: 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      form {
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+</style>
+<body>
+  <h1>Registration Page</h1>
+  <form action="submit_registration.php" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required placeholder="Enter your full name"> <br>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email"> <br>
+
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" name="phone" required placeholder="Enter your phone number"> <br>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required placeholder="Enter your password"> <br>
+
+    <label for="confirm_password">Confirm Password</label>
+    <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm your password">   <br>
+
+    <button type="submit">Register Now</button> <br>
+  </form>
+  <p id="successMessage" style="display: none; color: green; font-weight: bold;">Registration Successful!</p>
+
+  <script>
+    function submitForm() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm_password').value;
+
+      if (password === confirmPassword) {
+        document.getElementById('successMessage').style.display = 'block';
+      } else {
+        alert('Passwords do not match!');
+      }
+    }
+  </script> 
+  
+</body>
+</html>
